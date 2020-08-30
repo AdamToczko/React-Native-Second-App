@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Platform } from "react-native";
 
 import { ProductsOverviewScreen } from "../screens/shop/ProductsOverviewScreen";
+import { ProductDetailScreen } from "../screens/shop/ProductDetailScreen";
 import Colors from "../constants/Colors";
 
 const defaultNavOptions = {
@@ -18,26 +19,26 @@ const defaultNavOptions = {
     headerTintColor: Platform.OS === "android" ? "white" : Colors.primary,
 };
 
-const ProductsStackNavigator = createStackNavigator();
+const Stack = createStackNavigator();
 
 export const ProductsNavigator = () => {
     return (
-        <ProductsStackNavigator.Navigator screenOptions={defaultNavOptions}>
-            <ProductsStackNavigator.Screen
-                name="ProductsOverview"
+        <Stack.Navigator screenOptions={defaultNavOptions}>
+            <Stack.Screen
+                name="Products Overview"
                 component={ProductsOverviewScreen}
                 // options={productsOverviewScreenOptions}
             />
-            {/* <ProductsStackNavigator.Screen
-                name="ProductDetail"
+            <Stack.Screen
+                name="Product Detail"
                 component={ProductDetailScreen}
-                options={productDetailScreenOptions}
+                // options={productsOverviewScreenOptions}
             />
-            <ProductsStackNavigator.Screen
+            {/* <Stack.Screen
                 name="Cart"
                 component={CartScreen}
                 options={cartScreenOptions}
             /> */}
-        </ProductsStackNavigator.Navigator>
+        </Stack.Navigator>
     );
 };
